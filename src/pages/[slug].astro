@@ -1,0 +1,39 @@
+---
+import type { GetStaticPathsOptions, GetStaticPathsResult } from 'astro'
+export async function getStaticPaths(options: GetStaticPathsOptions): Promise<GetStaticPathsResult> {
+  const pages = [
+    {
+      slug: undefined,
+      title: "Astro Store",
+      text: "Welcome to the Astro store!",
+    },
+    {
+      slug: "clifford",
+      title: "Astro products",
+      text: "We have lots of products for you",
+    },
+    {
+      slug: "spot",
+      title: "The ultimative Astro handbook",
+      text: "If you want to learn Astro, you must read this book.",
+    },
+  ];
+  return pages.map(({ slug, title, text }) => {
+    return {
+      params: { slug },
+      props: { title, text },
+    };
+  });
+}
+
+const { title, text } = Astro.props;
+---
+<html>
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <p>{text}</p>
+  </body>
+</html>
