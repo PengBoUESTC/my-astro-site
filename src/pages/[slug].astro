@@ -3,11 +3,6 @@ import type { GetStaticPathsOptions, GetStaticPathsResult } from 'astro'
 export async function getStaticPaths(options: GetStaticPathsOptions): Promise<GetStaticPathsResult> {
   const pages = [
     {
-      slug: undefined,
-      title: "Astro Store",
-      text: "Welcome to the Astro store!",
-    },
-    {
       slug: "clifford",
       title: "Astro products",
       text: "We have lots of products for you",
