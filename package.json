@@ -8,12 +8,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "netlify": "netlify init"
   },
   "dependencies": {
     "astro": "^1.5.1"
   },
   "devDependencies": {
-    "@types/node": "^18.11.2"
+    "@types/node": "^18.11.2",
+    "netlify-cli": "^12.0.11"
   }
 }
