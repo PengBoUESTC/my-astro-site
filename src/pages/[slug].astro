@@ -26,6 +26,7 @@ const { title, text } = Astro.props;
 <html>
   <head>
     <title>{title}</title>
+    <div>{import.meta.env.MODE}</div>
   </head>
   <body>
     <h1>{title}</h1>
