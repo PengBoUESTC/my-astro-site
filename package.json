@@ -12,7 +12,8 @@
     "netlify": "netlify init"
   },
   "dependencies": {
-    "astro": "^1.5.1"
+    "astro": "^1.5.1",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@astrojs/react": "^1.2.1",
