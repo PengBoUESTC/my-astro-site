@@ -9,6 +9,7 @@ export default defineConfig({
   server: {
     host: 'jynpb.com',
   },
+  site: 'https://pbjyn.com/',
   vite: {
     server: {
       open: import.meta.env.MODE !== 'production'

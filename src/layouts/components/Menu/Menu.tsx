@@ -5,7 +5,7 @@ import './index.scss'
 export interface MenuList {
   name: string;
   url?: string;
-  pathname?: string;
+  origin?: string;
 }
 
 export interface Props {
@@ -17,9 +17,9 @@ export class Menu extends Component<Props> {
     const { menuList } = this.props
     return <div className='menu-wrapper'>
       {
-        menuList.map(({ name, url, pathname }) => {
+        menuList.map(({ name, url, origin }) => {
           return <a
-              href={url}
+              href={`${origin}/${url}/`}
               key={name}>
                 { name }
             </a>

@@ -6,13 +6,15 @@ export interface Props {
 	title: string;
 }
 
+const isPro = import.meta.env.MODE === 'production'
+
 const pages = await Astro.glob('../mds/**.md')
 
 const { title } = Astro.props;
 const menuList: MenuList[] = pages.map(page => {
 	const { file } = page
 	const { name } = parse(file)
-	return { name, url: name, pathname: Astro.site?.pathname || '' }
+	return { name, url: name, origin: isPro ? Astro.site?.origin || '' : '' }
 })
 ---
 
