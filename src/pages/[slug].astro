@@ -1,35 +1,22 @@
 ---
+import { parse } from 'path'
 import type { GetStaticPathsOptions, GetStaticPathsResult } from 'astro'
+import Layout from '../layouts/Layout.astro';
+
 export async function getStaticPaths(options: GetStaticPathsOptions): Promise<GetStaticPathsResult> {
-  const pages = [
-    {
-      slug: "clifford",
-      title: "Astro products",
-      text: "We have lots of products for you",
-    },
-    {
-      slug: "spot",
-      title: "The ultimative Astro handbook",
-      text: "If you want to learn Astro, you must read this book.",
-    },
-  ];
-  return pages.map(({ slug, title, text }) => {
+  const pages = await Astro.glob('../mds/**.md')
+  return pages.map(page => {
+    const { compiledContent, file } = page
+    const { name: title  } = parse(file)
     return {
-      params: { slug },
-      props: { title, text },
+      params: { slug: title },
+      props: { title, compiledContent },
     };
   });
 }
 
-const { title, text } = Astro.props;
+const { title, compiledContent } = Astro.props;
 ---
-<html>
-  <head>
-    <title>{title}</title>
-    <div>{import.meta.env.MODE}</div>
-  </head>
-  <body>
-    <h1>{title}</h1>
-    <p>{text}</p>
-  </body>
-</html>
+<Layout title={title}>
+  <div set:html={compiledContent()}></div>
+</Layout>

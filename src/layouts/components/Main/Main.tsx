@@ -5,7 +5,7 @@ import './index.scss'
 export class Main extends Component {
   render(): ReactNode {
     return <div className='main-wrapper'>
-      <slot></slot>
+      { this.props.children }
     </div>
   }
 }
