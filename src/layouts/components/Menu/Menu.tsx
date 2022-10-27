@@ -19,7 +19,7 @@ export class Menu extends Component<Props> {
       {
         menuList.map(({ name, url, pathname }) => {
           return <a
-              href={`${pathname}${url}`}
+              href={url}
               key={name}>
                 { name }
             </a>
