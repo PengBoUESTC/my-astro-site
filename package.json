@@ -13,6 +13,11 @@
   },
   "dependencies": {
     "astro": "^1.5.1",
+    "hast-util-to-string": "^2.0.0",
+    "hastscript": "^7.1.0",
+    "html-escaper": "^3.0.3",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
     "sass": "^1.55.0"
   },
   "devDependencies": {
