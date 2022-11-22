@@ -25,29 +25,14 @@ const menuList: MenuList[] = pages.map(page => {
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<meta name="athor" content="PengBoUESTC" />
+		<meta name="description" content="pengbo's blog, study & write" />
+		<meta name="keywords" content="front end,FE,Javascript,HTML,Css,Vue,Vite..." />
 
-		<script>
-			function calcRem() {
-				let deviceWidth = document.documentElement.clientWidth;
-				if (deviceWidth > 640) {
-					deviceWidth = 640;
-				} else if (deviceWidth < 320) {
-					deviceWidth = 320;
-				}
-				if (navigator.userAgent && navigator.userAgent.indexOf('iPad') > -1) {
-					deviceWidth = document.documentElement.clientWidth;
-				}
-				document.documentElement.style.fontSize = deviceWidth / 3.75 + 'px';
-			}
-			calcRem();
-			window.onresize = function () {
-				calcRem()
-			}
-		</script>
+		<title>{title}</title>
 	</head>
 	<body>
-		<Header></Header>
+		<Header client:load></Header>
 		<Menu menuList={menuList}></Menu>
 		<div class="main">
 			<Main>
@@ -70,15 +55,15 @@ const menuList: MenuList[] = pages.map(page => {
 	body {
 		padding: 0;
 		margin: 0;
-		font-size: 0.16rem;
+		font-size: 16px;
 	}
 
 	div {
-			box-sizing: border-box;
+		box-sizing: border-box;
 	}
 
 	.main {
-		margin: 0.1rem 0.1rem 0.1rem 1.1rem;
+		margin: 10px 10px 10px 130px;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

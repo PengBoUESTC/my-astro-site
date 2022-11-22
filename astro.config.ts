@@ -7,6 +7,8 @@ import { escape } from 'html-escaper';
 import { tokens, foregroundPrimary, backgroundPrimary } from './syntax-highlighting-theme';
 import { remarkFallbackLang } from './plugins/remark-fallback-lang';
 import { rehypeTasklistEnhancer } from './plugins/rehype-tasklist-enhancer';
+import pxtorem from 'postcss-pxtorem'
+import autoprefixer from 'autoprefixer'
 
 const AnchorLinkIcon = h(
 	'svg',
@@ -89,6 +91,17 @@ export default defineConfig({
   vite: {
     server: {
       open: import.meta.env.MODE !== 'production'
-    }
+    },
+		css: {
+			postcss: {
+				plugins: [
+					autoprefixer,
+					pxtorem({
+						rootValue: 12,
+						exclude: /node_modules/i
+					})
+				]
+			}
+		}
   }
 });

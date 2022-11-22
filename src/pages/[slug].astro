@@ -6,17 +6,17 @@ import Layout from '../layouts/Layout.astro';
 export async function getStaticPaths(options: GetStaticPathsOptions): Promise<GetStaticPathsResult> {
   const pages = await Astro.glob('../mds/**.md')
   return pages.map(page => {
-    const { compiledContent, file } = page
+    const { file, Content } = page
     const { name: title  } = parse(file)
     return {
       params: { slug: title },
-      props: { title, compiledContent },
+      props: { title, Content },
     };
   });
 }
 
-const { title, compiledContent } = Astro.props;
+const { title, Content } = Astro.props;
 ---
 <Layout title={title}>
-  <div set:html={compiledContent()}></div>
+  <Content />
 </Layout>
